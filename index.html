@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compac Fotos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+        <circle cx="12" cy="13" r="4"></circle>
+      </svg>
+      <h1>Compac Fotos</h1>
+    </div>
+    <p class="tagline">Insira fotos, escreva a legenda, organize por página e baixe pronto para revelar.</p>
+    <div class="divider"></div>
+  </header>
+
+  <section class="uploader" id="dropzone">
+    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+    <div class="uploader-inner">
+      <svg class="uploader-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <p>Arraste as fotos aqui ou <button type="button" id="browseBtn" class="link-btn">escolha os arquivos</button></p>
+      <p class="hint">JPG, PNG ou WEBP</p>
+    </div>
+  </section>
+
+  <section class="toolbar">
+    <div class="stat">
+      <span id="photoCount">0</span> fotos&nbsp;·&nbsp;<span id="pageCount">0</span> páginas
+    </div>
+    <button id="downloadPdfBtn" class="btn btn-primary" disabled>
+      <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Baixar tudo (PDF)
+    </button>
+  </section>
+
+  <main id="pages" class="pages" aria-live="polite"></main>
+
+  <div id="emptyState" class="empty-state">
+    <svg class="empty-illustration" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+      <polyline points="21 15 16 10 5 21"></polyline>
+    </svg>
+    <p class="empty-title">Nenhuma foto ainda</p>
+    <p class="empty-hint">Adicione suas primeiras fotos acima para começar a montar as páginas.</p>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <div id="progressBar" class="progress-bar"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

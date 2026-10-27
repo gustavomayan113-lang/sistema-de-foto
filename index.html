@@ -36,17 +36,49 @@
   </section>
 
   <section class="toolbar">
-    <div class="stat">
-      <span id="photoCount">0</span> fotos&nbsp;·&nbsp;<span id="pageCount">0</span> páginas
+    <div class="toolbar-left">
+      <div class="stat">
+        <span id="photoCount">0</span> fotos&nbsp;·&nbsp;<span id="pageCount">0</span> páginas
+      </div>
+      <div class="report-name-field">
+        <label for="reportNameInput" class="report-name-label">Nome do relatório</label>
+        <input type="text" id="reportNameInput" class="report-name-input" placeholder="Ex.: Relatório fotográfico – nome da obra" autocomplete="off">
+      </div>
+       <div class="report-meta">
+         <div class="report-meta-field">
+           <label for="obraInput" class="report-name-label">Nome da obra</label>
+           <input type="text" id="obraInput" class="report-name-input" placeholder="Nome da obra" autocomplete="off">
+         </div>
+         <div class="report-meta-field">
+           <label for="contratoInput" class="report-name-label">Número do contrato</label>
+           <input type="text" id="contratoInput" class="report-name-input" placeholder="Número do contrato" autocomplete="off">
+         </div>
+         <div class="report-meta-field">
+           <label for="periodoInput" class="report-name-label">Período medido</label>
+           <input type="text" id="periodoInput" class="report-name-input" placeholder="Período medido" autocomplete="off">
+         </div>
+       </div>
     </div>
-    <button id="downloadPdfBtn" class="btn btn-primary" disabled>
-      <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-        <polyline points="7 10 12 15 17 10"></polyline>
-        <line x1="12" y1="15" x2="12" y2="3"></line>
-      </svg>
-      Baixar tudo (PDF)
-    </button>
+    <div class="toolbar-actions">
+      <button id="downloadPdfBtn" class="btn btn-primary" disabled>
+        <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Baixar PDF
+      </button>
+      <button id="downloadExcelBtn" class="btn btn-primary" disabled>
+        <svg class="btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Baixar Excel
+      </button>
+    </div>
   </section>
 
   <main id="pages" class="pages" aria-live="polite"></main>
@@ -65,8 +97,9 @@
   <div id="progressBar" class="progress-bar"></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
